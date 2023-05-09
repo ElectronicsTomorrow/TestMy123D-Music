@@ -1,0 +1,682 @@
+body {
+    overflow: hidden;
+    margin: 0px;
+}
+
+/*///////////////////////////////////////////////////////////////////
+Exercise screen section
+///////////////////////////////////////////////////////////////////*/
+.exercise-screen {
+    visibility: hidden;
+}
+
+/*///////////////////////////////////////////////////////////////////
+The buttons in the MediaPipe screen
+///////////////////////////////////////////////////////////////////*/
+.exercise-music-button,
+ #exercise-music-button {
+    position: fixed;
+    background: transparent url('img/Music/Music_EnabledAvailable.png') no-repeat;
+    background-size: contain;
+    width: 10%;
+    height: 22%;
+    right: 1%;
+    top: 3%;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
+}
+.exercise-stop-button,
+#exercise-stop-button {
+    position: fixed;
+    background: transparent url('img/Stop/Stop_EnabledAvailable.png') no-repeat;
+    background-size: contain;
+    width: 10%;
+    height: 22%;
+    right: 1%;
+    top: 16%;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
+}
+.exercise-stop-button:hover {
+    background: transparent url('img/Stop/Stop_EnabledHovered.png') no-repeat;
+}
+
+/*///////////////////////////////////////////////////////////////////
+For switching the player
+///////////////////////////////////////////////////////////////////*/
+.exercise-player-cage1,
+#exercise-player-cage1 {
+    position: fixed;
+    background: transparent url('img/PlayerCage/PlayerCage_EnabledAvailable.png') no-repeat;
+    background-size: contain;
+    width: 6%;
+    height: 20.5%;
+    left: 1%;
+    top: 1%;
+    border: none;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    cursor: pointer;
+}
+.exercise-player-cage2,
+#exercise-player-cage2 {
+    position: fixed;
+    background: transparent url('img/PlayerCage/PlayerCage_EnabledAvailable.png') no-repeat;
+    background-size: contain;
+    width: 6%;
+    height: 20.5%;
+    left: 1%;
+    top: 23%;
+    border: none;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    cursor: pointer;
+}
+/*///////////////////////////////////////////////////////////////////
+The wireless hand cursor
+///////////////////////////////////////////////////////////////////*/
+.exercise-pseudo-cursor {
+    content: url('img/Cursor/BigHand.png');
+    background: transparent;
+    left: 50%;
+    top: 17%;
+    position: absolute;
+    border: none;
+    z-index: 3;
+}
+
+/*///////////////////////////////////////////////////////////////////
+For debugging purpose
+///////////////////////////////////////////////////////////////////*/
+#exercise_cheatsheet_1,
+.exercise_cheatsheet_1
+{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 12%;
+    left: 2.5%;
+    bottom: 48%;
+    padding: 0;
+    color: red;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    z-index: 2;
+}
+#exercise_cheatsheet_2,
+.exercise_cheatsheet_2
+{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 12%;
+    left: 2.5%;
+    bottom: 36%;
+    padding: 0;
+    color: red;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    z-index: 2;
+}
+#exercise_cheatsheet_3,
+.exercise_cheatsheet_3
+{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 12%;
+    left: 2.5%;
+    bottom: 24%;
+    padding: 0;
+    color: red;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    z-index: 2;
+}
+#exercise_cheatsheet_4,
+.exercise_cheatsheet_4
+{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 12%;
+    left: 2.5%;
+    bottom: 12%;
+    padding: 0;
+    color: red;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    z-index: 2;
+}
+#exercise_cheatsheet_5,
+.exercise_cheatsheet_5
+{
+    position: absolute;
+    display: flex;
+    width: 60%;
+    height: 12%;
+    left: 2.5%;
+    bottom: 0%;
+    padding: 0;
+    color: red;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: left;
+    justify-content: start;
+    align-items: start;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    background: transparent;
+    z-index: 2;
+}
+
+
+/*******************************************************************
+This section defines style which slides in from left to right
+********************************************************************/
+.slide-in-from-left {
+    animation: slide-in-from-left 0.8s forwards;
+    -webkit-animation: slide-in-from-left 0.8s forwards;
+}
+
+.slide-out-to-left {
+    animation: slide-out-to-left 0.5s forwards;
+    -webkit-animation: slide-out-to-left 0.5s forwards;
+}
+
+@keyframes slide-in-from-left {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in-from-left {
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out-to-left {
+    0% { transform: translateX(0%); opacity: 1;}
+    100% { transform: translateX(-100%); opacity: 0;}
+}
+
+@-webkit-keyframes slide-out-to-left {
+    0% { -webkit-transform: translateX(0%); opacity: 1;}
+    100% { -webkit-transform: translateX(-100%);  opacity: 0;}
+}
+
+/*******************************************************************
+The pose estimation for the Exercise screen
+********************************************************************/
+#MediaPipe-input-video {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+#exercise-pose-estimate-stage {
+    position: absolute;
+    display: flex;
+    width: 55%;
+    height: 92.5%;
+    top: 2.7%;
+    right: 1%;
+    background: transparent;
+    border: solid 10px;
+    border-radius: 30px;
+    border-color: rgba(0,0,255, 1);
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    visibility: hidden;
+    z-index: 0;
+}
+#exercise-pose-estimate-canvas {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+#exercise-pose-estimate-unavailable {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 30%;
+    top: 35%;
+    background: transparent;
+    font-size: 9.0vh;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+    z-index: 0;
+}
+#exercise-pose-estimate-comments,
+.exercise-pose-estimate-comments {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    font-size: 6.0vh;
+    color: black;
+    text-align: center;
+    background: transparent;
+    border: none;
+    z-index: 1;
+}
+.exercise-begin-sign,
+#exercise-begin-sign {
+    position: absolute;
+    display: inline-block;
+    left: 36%;
+    top: 30%;
+    width: 350px;
+    height: 350px;
+    font-size: 150px;
+    text-align: center;
+    line-height: 350px;
+    color: green;
+    border: solid 10px green;
+    border-radius: 50%;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.exercise-stop-sign,
+#exercise-stop-sign {
+    position: absolute;
+    display: inline-block;
+    left: 36%;
+    top: 30%;
+    width: 350px;
+    height: 350px;
+    font-size: 150px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 350px;
+    color: red;
+    border: solid 10px red;
+    border-radius: 25%;
+    visibility: hidden;
+    z-index: 2;
+}
+
+.exercise-begin-stop-sign-fadein,
+#exercise-begin-stop-sign-fadein {
+    animation: exercise-begin-stop-sign-fadein 5s;
+    -webkit-animation: exercise-begin-stop-sign-fadein 5s;
+    -moz-animation: exercise-begin-stop-sign-fadein 5s;
+    -o-animation: exercise-begin-stop-sign-fadein 5s;
+    -ms-animation: exercise-begin-stop-sign-fadein 5s;
+}
+.exercise-begin-stop-sign-fadeout,
+#exercise-begin-stop-sign-fadeout {
+    animation: exercise-begin-stop-sign-fadeout 6s;
+    -webkit-animation: exercise-begin-stop-sign-fadeout 6s;
+    -moz-animation: exercise-begin-stop-sign-fadeout 6s;
+    -o-animation: exercise-begin-stop-sign-fadeout 6s;
+    -ms-animation: exercise-begin-stop-sign-fadeout 6s;
+    opacity: 0;
+}
+@keyframes exercise-begin-stop-sign-fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1;}
+}
+@keyframes exercise-begin-stop-sign-fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0;}
+}
+@-webkit-keyframes exercise-begin-stop-sign-fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+/*******************************************************************
+This section defines style which slides in from right to left
+********************************************************************/
+.slide-in-from-right {
+    animation: slide-in-from-right 0.8s forwards;
+    -webkit-animation: slide-in-from-right 0.8s forwards;
+}
+
+.slide-out-to-right {
+    animation: slide-out-to-right 0.5s forwards;
+    -webkit-animation: slide-out-to-right 0.5s forwards;
+    opacity: 0;
+}
+
+@keyframes slide-in-from-right {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in-from-right {
+    100% { -webkit-transform: translateX(0%); }
+}
+
+@keyframes slide-out-to-right {
+    0% { transform: translateX(0%); opacity: 1; }
+    -100% { transform: translateX(100%); opacity: 0; }
+}
+
+@-webkit-keyframes slide-out-to-right {
+    0% { -webkit-transform: translateX(0%); opacity: 1; }
+    -100% { -webkit-transform: translateX(100%); opacity: 0; }
+}
+
+/*///////////////////////////////////////////////////////////////////
+Navigation bar section
+///////////////////////////////////////////////////////////////////*/
+/*******************************************************************
+defines the Navigation bar at the bottom of screen
+********************************************************************/
+.navigationBar {
+    visibility: hidden;
+}
+
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    padding: 0;
+    transition: .3s;
+    box-sizing: border-box;
+}
+
+nav ul{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    width: 18%;
+    height: 100%;
+    margin: 0px 0px 0px 5.2%;
+    padding: 0;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+}
+
+nav ul li a {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: solid;
+    border-color: #49be25;
+    border-width: 8px;
+    border-radius: 20px;
+    font-size: 4vw;
+/*    line-height: 150%;*/
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .3s;
+    color: rgba(124,104,83,1);
+    background: linear-gradient(135deg, rgba(213,170,147, 0.8) 70%, rgba(228,178,155, 0.8) 70%),
+                linear-gradient(135deg, rgba(240,208,172, 0.8) 71%, rgba(255,255,255, 0.8) 100%);
+    display: block;
+}
+nav ul li a:active {
+    background: linear-gradient(135deg, rgba(213,170,147, 0.8) 0.5%, rgba(255,255,255, 0.8) 70%),
+                linear-gradient(135deg, rgba(240,208,172, 0.8) 71%, rgba(228,178,155, 0.8) 100%);
+}
+nav ul li a:focus{
+    outline: none;
+}
+
+/*******************************************************************
+This is the dialog to provide loading info during application
+start up, it has 2 animations:
+1) Cimda logo filled with water and gradually rising
+2) A square browsing through each word and toggling in black & white
+********************************************************************/
+.loading-info-dialog {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+    width: 66%;
+    height: 35%;
+	margin: 0;
+	padding: 0;
+	justify-content: start;
+	align-items: left;
+	font-family: sans-serif;
+	background: rgba(255,255,255,0.8);
+	border: solid 6px;
+	border-color: rgba(50,205,50, 1);
+	border-top-right-radius: 70px;
+	border-bottom-right-radius: 70px;
+	border-bottom-left-radius: 80px;
+    animation: loading-info-dialog-slide1 1s ease-in-out;
+}
+@keyframes loading-info-dialog-slide1 {
+    0% {
+        left: -80%;
+        top: -80%;
+    }
+    25% {
+        left: -60%;
+        top: -60%;
+    }
+    50% {
+        left: -40%;
+        top: -40%;
+    }
+    75% {
+        left: -20%;
+        top: -20%;
+    }
+    90% {
+        left: -5%;
+        top: -5%;
+    }
+    100% {
+        left: 1%;
+        top: 2%;
+    }
+}
+@keyframes loading-info-dialog-slide2 {
+    0% {
+        transform: skewX(53deg) translateX(-500px);
+    }
+    60% {
+        transform: translateX(0px);
+    }
+    62% {
+        transform: skewX(0deg) translateX(30px);
+    }
+    70% {
+        transform: skew(-20deg);
+        opacity: 1;
+    }
+    80% {
+        transform: skew(0deg) translate(0);
+    }
+    90% {
+        transform: skew(-5deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+/*******************************************************************
+Loading animation 1: a big Cimda logo filled with water and
+gradually rising
+********************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+/*
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+*/
+.cimda-wave-logo {
+    top: 1%;
+  left: 27.5%;
+  background: #000;
+  vertical-align: text-top;
+}
+
+.cimda-wave-logo h2 {
+  top: 1%;
+  position: absolute;
+  left: 27.5%;
+  color: #fff;
+  transform: translate(-50%,-50%);
+  font-size: 11em;
+  vertical-align: top;
+}
+
+.cimda-wave-logo h2:nth-child(1) {
+    color: transparent;
+  -webkit-text-stroke: 2px #03a9f4;
+}
+
+.cimda-wave-logo h2:nth-child(2) {
+    color: #03a9f4;
+  animation: animate-cimda-wave-logo 4s ease-in-out infinite;
+}
+
+@keyframes animate-cimda-wave-logo {
+  0%,100%{
+    clip-path: polygon(0% 45%, 15% 44%, 32% 50%,
+      54% 60%, 70% 61%, 84% 59%, 100% 52%,
+      100% 100%, 0% 100%);
+  }
+  50%{
+    clip-path: polygon(0% 60%, 16% 65%, 34% 66%,
+      51% 62%, 67% 50%, 84% 45%, 100% 46%,
+      100% 100%, 0% 100%);
+  }
+}
+/*******************************************************************
+Loading animation 2: a square browsing through each word and
+toggling it into black & white
+********************************************************************/
+.text-007-style
+{
+    position: absolute;
+    left: 54%;
+    top: 40%;
+	font-size: 4em;
+	background: transparent;
+	color: #000;
+	letter-spacing: .1em;
+	padding: 0px;
+}
+.text-007-style span
+{
+	color: #fff;
+	mix-blend-mode: difference;
+
+}
+.text-007-style::before
+{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 70px;
+	height: 100%;
+	background: #000;
+	-webkit-animation: move-text-007-style 5s ease normal infinite;
+  -moz-animation: move-text-007-style 5s ease normal infinite;
+  -ms-animation: move-text-007-style 5s ease normal infinite;
+  -o-animation: move-text-007-style 5s ease normal infinite;
+  animation: move-text-007-style 5s ease normal infinite;
+
+}
+@-webkit-keyframes move-text-007-style
+{
+	0%
+	{
+		left: 0;
+	}
+	50%
+	{
+		left: calc(100% - 90px);
+	}
+	100%
+	{
+		left: 0;
+	}
+}
+
+.loading-info-version {
+    position: absolute;
+    top: 82%;
+    right: 2.5%;
+    font-size: 1em;
+    color: grey;
+}
+hr {
+    position: relative;
+    top: 72%;
+    width: 95%;
+    display: block;
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.loading-info-msg {
+    position: relative;
+    top: 87%;
+    left: 4%;
+    font-size: 2em;
+    color: grey;
+}
