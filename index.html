@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="img/Common/favicon.ico" />
+        <!-- This section here belongs to the MediaPipe Pose Estimation -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.css" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.2/drawing_utils.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.2/pose.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
+        <!---------------- End of MediaPipe Pose Estimation --------------->
+        <!-- This section here belongs to tone.js -->
+        <!-- script src="https://unpkg.com/tone"></script -->
+        <title>My123D Music</title>
+    </head>
+
+    <body>
+    <!---------------------------------- Section: Loading dialog ---------------------------------->
+    <div id="loading-info-dialog" class="loading-info-dialog">
+        <div class="cimda-wave-logo">
+            <h2>My123D</h2>
+            <h2>My123D</h2>
+        </div>
+        <div id="text-007-style" class="text-007-style">
+            <span>創作音樂自主發揮</span>
+        </div>
+        <div id="loading-info-version" class="loading-info-version">1.01.00.018</div>
+        <div id="loading-info-msg" class="loading-info-msg">系統起在初始化中, 請稍候片刻 ...</div>
+        <hr></hr>
+    </div>
+    <!---------------------------------- Section: Welcome screen --------------------------------->
+    <section id="welcome-screen">
+    </section>
+    <!---------------------------------- Section: Exercise screen --------------------------------->
+    <section id="exercise-screen" class="exercise-screen">
+        <div id="exercise_cheatsheet_1" class="exercise_cheatsheet_1"></div>
+        <div id="exercise_cheatsheet_2" class="exercise_cheatsheet_2"></div>
+        <div id="exercise_cheatsheet_3" class="exercise_cheatsheet_3"></div>
+        <div id="exercise_cheatsheet_4" class="exercise_cheatsheet_4"></div>
+        <div id="exercise_cheatsheet_5" class="exercise_cheatsheet_5"></div>
+        <div>
+            <img id="exercise-pseudo-cursor" class="exercise-pseudo-cursor"></img>
+        </div>
+        <button id="exercise-player-cage1" class="exercise-player-cage1"></button>
+        <button id="exercise-player-cage2" class="exercise-player-cage2"></button>
+        <div id="exercise-pose-estimate-stage" class="slide-in-from-right">
+            <video id="MediaPipe-input-video"></video>
+            <canvas id="exercise-pose-estimate-canvas" width="1080px" height="1080px">
+            </canvas>
+            <div id="exercise-pose-estimate-unavailable">請設置好相機, 以便評估運動姿勢
+            </div>
+            <div id="exercise-pose-estimate-comments" class="exercise-pose-estimate-comments">
+            </div>
+            <button id="exercise-music-button" class="exercise-music-button"></button>
+            <button id="exercise-stop-button" class="exercise-stop-button"></button>
+        </div>
+        <div id="exercise-begin-sign" class="exercise-begin-sign">開始</div>
+        <div id="exercise-stop-sign" class="exercise-stop-sign">停止</div>
+    </section>
+    <footer>
+        <!----------------------- Section: Navigation bar and its 4 buttons------------------------>
+        <div id="navigationBar" class="navigationBar">
+            <nav>
+                <ul>
+                    <li><a href="#" id="navigation-bar-reminder">提醒</a></li>
+                    <li><a href="#" id="navigation-bar-exercise">運動</a></li>
+                    <li><a href="#" id="navigation-bar-entertainment">娛樂</a></li>
+                    <li><a href="#" id="navigation-bar-chat">對話</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script type="module" src="bundle.js"></script>
+    </body>
+</html>
